@@ -1,6 +1,3 @@
-# Save the code to a Python file
-with open("chatbot_app.py", "w") as f:
-    f.write("""
 import streamlit as st
 import openai
 import os
@@ -62,4 +59,3 @@ for speaker, msg in st.session_state.chat_history:
         st.markdown(f"**You:** {msg}")
     else:
         st.markdown(f"**Bot:** {msg}")
-""")
