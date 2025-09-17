@@ -1,6 +1,6 @@
-pip install streamlit openai
-export OPENAI_API_KEY="your_openai_api_key_here"
-streamlit run student_chatbot.py
+!pip install streamlit openai
+%env OPENAI_API_KEY="your_openai_api_key_here"
+!streamlit run student_chatbot.py
 
 import streamlit as st
 import openai
