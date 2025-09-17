@@ -13,17 +13,13 @@ def get_openai_response(user_input):
         {"role": "system", "content": "You are a helpful assistant for student queries."},
         {"role": "user", "content": user_input}
     ]
-    try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",  # or use "gpt-4" if you have access
-            messages=messages,
-            max_tokens=150,
-            temperature=0.7,
-        )
-        return response.choices[0].message['content'].strip()
-    except Exception as e:
-        return f"An error occurred: {e}"
-
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # or use "gpt-4" if you have access
+        messages=messages,
+        max_tokens=150,
+        temperature=0.7,
+    )
+    return response.choices[0].message['content'].strip()
 
 def answer_question(user_input):
     # Simple logic for exam-related questions
@@ -48,7 +44,7 @@ user_question = st.text_input("Ask a question about your course, exams, or anyth
 if user_question:
     # Get the answer
     bot_answer = answer_question(user_question)
-
+    
     # Save conversation
     st.session_state.chat_history.append(("You", user_question))
     st.session_state.chat_history.append(("Bot", bot_answer))
